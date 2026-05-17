@@ -8,14 +8,14 @@ jobs:
     runs-on: windows-k3s
     steps:
       - name: Show runner context
-        shell: pwsh
+        shell: powershell
         run: |
           $PSVersionTable.PSVersion
           [System.Environment]::OSVersion.VersionString
           whoami
           hostname
       - name: Check workspace
-        shell: pwsh
+        shell: powershell
         run: |
           Get-Location
           Get-ChildItem Env:RUNNER_* | Sort-Object Name
