@@ -1,0 +1,22 @@
+name: windows-k3s-smoke
+
+on:
+  workflow_dispatch:
+
+jobs:
+  smoke:
+    runs-on: windows-k3s
+    steps:
+      - name: Show runner context
+        shell: pwsh
+        run: |
+          $PSVersionTable.PSVersion
+          [System.Environment]::OSVersion.VersionString
+          whoami
+          hostname
+      - name: Check workspace
+        shell: pwsh
+        run: |
+          Get-Location
+          Get-ChildItem Env:RUNNER_* | Sort-Object Name
+          Write-Output "windows-k3s-ok"
