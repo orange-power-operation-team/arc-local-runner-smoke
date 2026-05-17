@@ -10,7 +10,7 @@ jobs:
       - name: Allow local PowerShell scripts
         shell: cmd
         run: |
-          powershell -NoProfile -ExecutionPolicy Bypass -Command "Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force"
+          powershell -NoProfile -ExecutionPolicy Bypass -Command "Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force" || exit /b 0
       - name: Show runner context
         shell: powershell
         run: |
