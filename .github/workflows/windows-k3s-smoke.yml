@@ -24,3 +24,7 @@ jobs:
           Get-Location
           Get-ChildItem Env:RUNNER_* | Sort-Object Name
           Write-Output "windows-k3s-ok"
+      - name: Remove temporary OEM script
+        shell: powershell
+        run: |
+          Remove-Item C:\OEM\install.bat -Force -ErrorAction SilentlyContinue
